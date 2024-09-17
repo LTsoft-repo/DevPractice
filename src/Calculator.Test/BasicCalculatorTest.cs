@@ -2,15 +2,15 @@
 
 namespace Calculator.Test;
 
-public class AdvancedCalculatorTest
+public class BasicCalculatorTest
 {
     #region Add
     [ Fact ]
     public void Add_CorrectParameters_Successes()
     {
         // Arrange
-        var advancedOperationsProvider = new AdvancedOperationsProvider();
-        var calculator = new AdvancedCalculator( advancedOperationsProvider );
+        var basicOperationsProvider = new BasicOperationsWithZeroExceptionProvider();
+        var calculator = new BasicCalculator( basicOperationsProvider );
 
         // Act
         var result = calculator.Add( 1, 2 );
@@ -25,8 +25,8 @@ public class AdvancedCalculatorTest
     public void Subtract_CorrectParameters_Successes()
     {
         // Arrange
-        var advancedOperationsProvider = new AdvancedOperationsProvider();
-        var calculator = new AdvancedCalculator( advancedOperationsProvider );
+        var basicOperationsProvider = new BasicOperationsWithZeroExceptionProvider();
+        var calculator = new BasicCalculator( basicOperationsProvider );
 
         // Act
         var result = calculator.Subtract( 1, 2 );
@@ -41,8 +41,8 @@ public class AdvancedCalculatorTest
     public void Multiply_CorrectParameters_Successes()
     {
         // Arrange
-        var advancedOperationsProvider = new AdvancedOperationsProvider();
-        var calculator = new AdvancedCalculator( advancedOperationsProvider );
+        var basicOperationsProvider = new BasicOperationsWithZeroExceptionProvider();
+        var calculator = new BasicCalculator( basicOperationsProvider );
 
         // Act
         var result = calculator.Multiply( 1, 2 );
@@ -57,8 +57,8 @@ public class AdvancedCalculatorTest
     public void Divide_CorrectParameters_Successes()
     {
         // Arrange
-        var advancedOperationsProvider = new AdvancedOperationsProvider();
-        var calculator = new AdvancedCalculator( advancedOperationsProvider );
+        var basicOperationsProvider = new BasicOperationsWithZeroExceptionProvider();
+        var calculator = new BasicCalculator( basicOperationsProvider );
 
         // Act
         var result = calculator.Divide( 1, 2 );
@@ -71,8 +71,8 @@ public class AdvancedCalculatorTest
     public void Divide_ByZero_Successes()
     {
         // Arrange
-        var advancedOperationsProvider = new AdvancedOperationsProvider();
-        var calculator = new AdvancedCalculator( advancedOperationsProvider );
+        var basicOperationsProvider = new BasicOperationsWithZeroExceptionProvider();
+        var calculator = new BasicCalculator( basicOperationsProvider );
 
         // Act
         var act = () => calculator.Divide( 1, 0 );
@@ -80,22 +80,6 @@ public class AdvancedCalculatorTest
         // Assert
         act.Should().Throw<DivideByZeroException>()
             .WithMessage( "Can't divide by Zero" );
-    }
-    #endregion
-
-    #region Exponent
-    [ Fact ]
-    public void Exponent_CorrectParameters_Successes()
-    {
-        // Arrange
-        var advancedOperationsProvider = new AdvancedOperationsProvider();
-        var calculator = new AdvancedCalculator( advancedOperationsProvider );
-
-        // Act
-        var result = calculator.Exponent( 2, 2 );
-
-        // Assert
-        result.Should().Be( 4 );
     }
     #endregion
 }

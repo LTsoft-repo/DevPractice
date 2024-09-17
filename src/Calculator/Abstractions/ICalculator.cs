@@ -1,5 +1,7 @@
-﻿namespace Calculator.Abstractions;
+﻿using Calculator.Abstractions.Operations;
 
-public interface IBasicCalculator : IAddProvider, ISubtractProvider, IMultiplyProvider, IDivideProvider;
+namespace Calculator.Abstractions;
 
-public interface IAdvancedCalculator : IBasicCalculator, IExponentProvider;
+public interface IBasicCalculator : IAddOperation, ISubtractOperation, IMultiplyOperation, IDivideOperation;
+
+public interface IAdvancedCalculator : IBasicCalculator, IExponentOperation;
