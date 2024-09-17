@@ -1,0 +1,12 @@
+.vs/
+.idea/
+obj/
+bin/
+*.nupkg
+*.user
+*.log
+
+# Publishing configuration
+src/*/Properties/PublishProfiles/
+src/*/Properties/ServiceDependencies/
+src/*/Properties/serviceDependencies.*.json
