@@ -1,36 +1,27 @@
 ﻿using Calculator.Abstractions;
+using Calculator.Abstractions.Providers;
 
 namespace Calculator;
 
 public class BasicCalculator : IBasicCalculator
 {
-    private readonly IAddProvider addProvider;
-    private readonly IMultiplyProvider multiplyProvider;
-    private readonly ISubtractProvider subtractProvider;
-    private readonly IDivideProvider divideProvider;
+    private readonly IBasicOperationsProvider operationsProvider;
 
     // ReSharper disable once ConvertToPrimaryConstructor
-    public BasicCalculator(
-        IAddProvider addProvider,
-        ISubtractProvider subtractProvider,
-        IMultiplyProvider multiplyProvider,
-        IDivideProvider divideProvider )
+    public BasicCalculator( IBasicOperationsProvider operationsProvider )
     {
-        this.addProvider = addProvider;
-        this.subtractProvider = subtractProvider;
-        this.multiplyProvider = multiplyProvider;
-        this.divideProvider = divideProvider;
+        this.operationsProvider = operationsProvider;
     }
 
     public double Add( double a, double b )
-        => addProvider.Add( a, b );
+        => operationsProvider.Add( a, b );
 
     public double Divide( double a, double b )
-        => divideProvider.Divide( a, b );
+        => operationsProvider.Divide( a, b );
 
     public double Multiply( double a, double b )
-        => multiplyProvider.Multiply( a, b );
+        => operationsProvider.Multiply( a, b );
 
     public double Subtract( double a, double b )
-        => subtractProvider.Subtract( a, b );
+        => operationsProvider.Subtract( a, b );
 }
